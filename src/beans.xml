@@ -4,7 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <!--<property name="location" value="classpath:day01.properties"></property>-->
         <property name="locations">
             <list>
                 <value>classpath:day01.properties</value>
@@ -13,9 +12,6 @@
         </property>
     </bean>
 
-    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-        <!--<property name="location" value="classpath:session.properties"></property>-->
-    <!--</bean>-->
 
     <bean id="company" class="com.intuit.Company">
         <constructor-arg value="Sample Constructor"></constructor-arg>
