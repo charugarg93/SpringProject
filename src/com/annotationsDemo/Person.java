@@ -13,13 +13,6 @@ public class Person {
     @Autowired
     private Car car;
 
-    @Resource(name="stockList")
-    private List<String> stocklist;
-
-
-    public List<String> getStocklist() {
-        return stocklist;
-    }
 
     @Value("Sam")
     private String name;
