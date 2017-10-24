@@ -1,6 +1,10 @@
 package com.intuit;
 
 public class Company {
+
+    private String hq;
+    private long size;
+
     public void setHq(String hq) {
         this.hq = hq;
     }
@@ -17,8 +21,6 @@ public class Company {
         return size;
     }
 
-    private String hq;
-    private long size;
 
     public Company(){
         System.out.println("Company instantiated");

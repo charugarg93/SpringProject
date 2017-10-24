@@ -3,10 +3,39 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!--<property name="location" value="classpath:day01.properties"></property>-->
+        <property name="locations">
+            <list>
+                <value>classpath:day01.properties</value>
+                <value>classpath:session.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="location" value="classpath:session.properties"></property>-->
+    <!--</bean>-->
+
     <bean id="company" class="com.intuit.Company">
         <constructor-arg value="Sample Constructor"></constructor-arg>
         <property name="hq" value="${company.hq}"></property>
         <property name="size" value="${company.size}"></property>
+    </bean>
+
+    <bean id="sessionPlanner" class="com.intuit.SessionPlanner">
+        <property name="topic1" value="${topics.functional.groovy}"></property>
+        <property name="topic2" value="${topics.scala.tricks}"></property>
+        <property name="topic3" value="${topics.spring.unittesting}"></property>
+        <property name="topic4" value="${topics.javascript.unittesting}"></property>
+        <property name="topic5" value="${topics.concurrency.jvm}"></property>
+        <property name="topic6" value="${topics.grails.mvc}"></property>
+        <property name="topic7" value="${topics.server.javaScript}"></property>
+
+    </bean>
+
+    <bean id="conference" class="com.intuit.Conference">
+        <property name="sessionPlanner" ref="sessionPlanner"></property>
     </bean>
 
     <bean id="hello" class="com.intuit.Hello" scope="prototype"></bean>
@@ -17,6 +46,7 @@
 
     <bean id="soundAlarm" class="com.intuit.SoundAlarm"></bean>
     <bean id="visualAlarm" class="com.intuit.VisualAlarm"></bean>
+
 
     <bean id="door2" class="com.intuit.Door">
         <property name="alarm" ref="visualAlarm"/>
